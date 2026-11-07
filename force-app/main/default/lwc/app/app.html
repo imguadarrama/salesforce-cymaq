@@ -1,0 +1,18 @@
+<template>
+  <template lwc:if={ready}>
+    <div id="display">
+      <div>Name: {name}</div>
+      <div>Description: {description}</div>
+      <lightning-badge>Material: {material}</lightning-badge>
+      <lightning-badge>Category: {category}</lightning-badge>
+      <div>Price: {price}</div>
+      <div><img src={pictureUrl} alt={name} /></div>
+    </div>
+    <div>
+      <c-bike bike={bike}></c-bike>
+    </div>
+  </template>
+  <template lwc:else>
+    <div id="waiting">Loading…</div>
+  </template>
+</template>
