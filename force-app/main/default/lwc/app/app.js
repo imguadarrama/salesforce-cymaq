@@ -8,10 +8,6 @@ export default class App extends LightningElement {
   pictureUrl =
     "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/ebikes/electrax4.jpg";
   ready = false;
-  bike = {
-    name: "Bike name",
-    price: 1230
-  };
 
   connectedCallback() {
     setTimeout(() => {
