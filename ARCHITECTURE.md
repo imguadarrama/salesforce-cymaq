@@ -25,11 +25,10 @@ Standard fields used: `CreatedDate` (start of the countdown), `CreatedById`, `Ow
 ## Architecture
 
 - **Apex** `MaqcareReportController`
-  - `fileReport(description)`: validates the description, inserts the report with `Technician_Required__c = true`.
-  - `getMyReports()`: cacheable query of the user's reports (`Name`, `Description__c`, `CreatedDate`, `Hours_Left__c`).
-- **LWC** `maqcareReports`: a form to file a report plus a list of reports. The countdown is computed in the browser from `CreatedDate` (updated with `setInterval`), because a formula field is only evaluated when the record is queried and does not tick on its own.
-- **Lightning App Page** inside the `MaqCare` app hosts the LWC.
-- **Permission set** `MAQCARE_User` gives access to the object, its fields and the Apex class.
+  - `fileReport(description)`: inserts the report with `Technician_Required__c = true`.
+  - `getReports()`: returns the reports (`Name`, `Description__c`, `Hours_Left__c`).
+- **LWC** `maqcareReports`: a text box and a "File a report" button, plus a list of reports with their hours left. The list refreshes after filing a report.
+- **Lightning App Page / tab** "My Reports" inside the `MaqCare` app hosts the LWC.
 
 ## Functionality
 
