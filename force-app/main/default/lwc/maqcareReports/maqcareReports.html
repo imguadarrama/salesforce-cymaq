@@ -1,22 +1,14 @@
 <template>
-  <lightning-card title="MAQCARE Reports">
-    <div class="slds-p-horizontal_medium">
-      <lightning-textarea
-        label="Describe the problem"
-        value={description}
-        onchange={handleChange}
-      ></lightning-textarea>
-      <lightning-button
-        label="File a report"
-        variant="brand"
-        onclick={handleSubmit}
-      ></lightning-button>
-
-      <template for:each={reports} for:item="report">
-        <p key={report.Id} class="slds-m-top_small">
-          <b>{report.Name}</b> - {report.Description__c} -
-          Hours left: {report.Hours_Left__c}
-        </p>
+  <lightning-card title="MAQCARE Reports" icon-name="standard:case">
+    <div class="slds-p-around_medium">
+      <template lwc:if={hasActiveReport}>
+        <c-maqcare-report-details
+          report={activeReport}
+          oncancel={handleCancel}
+        ></c-maqcare-report-details>
+      </template>
+      <template lwc:else>
+        <c-maqcare-report-form oncreate={handleCreate}></c-maqcare-report-form>
       </template>
     </div>
   </lightning-card>
