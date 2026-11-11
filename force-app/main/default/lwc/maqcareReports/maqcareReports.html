@@ -1,0 +1,15 @@
+<template>
+  <lightning-card title="MAQCARE Reports" icon-name="standard:case">
+    <div class="slds-p-around_medium">
+      <template lwc:if={hasActiveReport}>
+        <c-maqcare-report-details
+          report={activeReport}
+          oncancel={handleCancel}
+        ></c-maqcare-report-details>
+      </template>
+      <template lwc:else>
+        <c-maqcare-report-form oncreate={handleCreate}></c-maqcare-report-form>
+      </template>
+    </div>
+  </lightning-card>
+</template>

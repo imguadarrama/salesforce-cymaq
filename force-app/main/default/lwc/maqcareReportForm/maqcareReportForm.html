@@ -1,0 +1,17 @@
+<template>
+  <lightning-textarea
+    label="Describe the problem"
+    placeholder="e.g. The compressor is not working due to an overheat."
+    value={description}
+    onchange={handleChange}
+  ></lightning-textarea>
+  <div class="slds-clearfix slds-m-top_small">
+    <lightning-button
+      class="slds-float_right"
+      label="File a report"
+      variant="brand"
+      disabled={isBlank}
+      onclick={handleSubmit}
+    ></lightning-button>
+  </div>
+</template>
